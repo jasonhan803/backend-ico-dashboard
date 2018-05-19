@@ -1,0 +1,17 @@
+FROM mhart/alpine-node:8.6
+
+RUN mkdir -p /usr/src/app
+ADD . /usr/src/app
+
+WORKDIR /usr/src/app
+
+RUN mkdir -p /usr/src/app/dist
+RUN cp -r src/certs dist/
+
+RUN apk add --update --no-cache git python make g++ && \
+    npm i -g yarn && \
+    yarn install && \
+    apk del --purge git python make g++ && \
+    rm -rf ./src
+
+CMD npm run serve

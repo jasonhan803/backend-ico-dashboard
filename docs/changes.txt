@@ -1,0 +1,19 @@
+updated all modules to latest
+
+services/user.service.ts
+Removed injector from user class
+
+entities/payment.gate.transactions.ts
+changed convertCoinpaymentsData column type to any, from null.
+
+sevices/dashboard.service.ts
+removed injector from class
+
+sevices/kyc.service.ts
+removed injector from class
+
+sevices/kyc.controller.ts
+removed injector from class
+
+ioc.container.ts
+changed the names on the controller binds
